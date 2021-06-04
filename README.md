@@ -107,3 +107,27 @@ private static final Random RANDOM = new Random();
 ## 📝 License
 
 This project is [MIT](https://github.com/woowacourse/java-baseball-precourse/blob/master/LICENSE) licensed.
+
+
+---
+
+## 기능 목록
+
+# Computer
+
+- 야구 게임 숫자 생성
+
+- 입력받은 야구 게임 숫자 값과 비교하여 야구 게임 힌트 출력, 정답 여부 상태 업데이트
+
+- 정답 여부 상태 출력
+
+- 입력받은 재시작 여부 값으로 재시작 여부 상태 업데이트
+
+- 재시작 여부 상태 출력
+
+# UserInputValidator
+
+- 입력받은 야구 게임 숫자가 유효한지 검증
+
+- 입력받은 재시작 여부 값이 유효한지 검증
+
