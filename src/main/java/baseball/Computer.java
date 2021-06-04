@@ -45,6 +45,10 @@ public class Computer {
         this.isRestart = false;
     }
 
+    public boolean isRestart() {
+        return this.isRestart;
+    }
+
     private void createAnswerNumberDigitMap() {
         answerNumberDigitMap.clear();
         while (answerNumberDigitMap.size() < NUMBER_OF_ANSWER_DIGITS) {
