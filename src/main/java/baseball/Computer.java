@@ -10,12 +10,14 @@ public class Computer {
     private static final int START_INCLUSIVE = 1;
     private static final int END_INCLUSIVE = 9;
     private static final int NUMBER_OF_ANSWER_DIGITS = 3;
+    private static final String RESTART = "1";
 
     private final Map<Integer, Integer> answerNumberDigitMap;
     private final ArrayList<Integer> userNumberDigitList;
     private int strikes;
     private int balls;
     private boolean isWrong;
+    private boolean isRestart;
 
     public Computer() {
         this.answerNumberDigitMap = new HashMap<>();
@@ -33,6 +35,14 @@ public class Computer {
 
     public boolean isWrongGuess() {
         return this.isWrong;
+    }
+
+    public void setCodeForRestartOrNot(String userInput) {
+        if (userInput.equals(RESTART)) {
+            this.isRestart = true;
+            return;
+        }
+        this.isRestart = false;
     }
 
     private void createAnswerNumberDigitMap() {
