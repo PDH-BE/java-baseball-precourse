@@ -21,6 +21,12 @@ public class UserInputValidator {
         }
     }
 
+    public void validCodeForRestartOrNot(String codeForRestartOrNot) throws IllegalArgumentException {
+        if (!(codeForRestartOrNot.equals("1") || codeForRestartOrNot.equals("2"))) {
+            throw new IllegalArgumentException("재시작 여부 입력은 1 또는 2 여야 합니다.");
+        }
+    }
+
     private boolean isNumber(String baseballNumberString) {
         return baseballNumberString.chars().allMatch(Character::isDigit);
     }
