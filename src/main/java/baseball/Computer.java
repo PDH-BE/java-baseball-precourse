@@ -31,6 +31,10 @@ public class Computer {
         processGuessResult();
     }
 
+    public boolean isWrongGuess() {
+        return this.isWrong;
+    }
+
     private void createAnswerNumberDigitMap() {
         answerNumberDigitMap.clear();
         while (answerNumberDigitMap.size() < NUMBER_OF_ANSWER_DIGITS) {
