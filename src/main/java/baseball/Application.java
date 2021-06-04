@@ -10,7 +10,7 @@ public class Application {
         final UserInputValidator user = new UserInputValidator();
 
         do {
-            computer.createAnswerBaseballNumber();
+            computer.generateBaseballNumber();
             guess(computer, user, scanner);
             String userCodeForRestartOrNot = inputCodeForRestartOrNotUntilIsValid(scanner, user);
             computer.setCodeForRestartOrNot(userCodeForRestartOrNot);
@@ -20,7 +20,7 @@ public class Application {
     private static void guess(Computer computer, UserInputValidator user, Scanner scanner) {
         do {
             String userGuessBaseballNumber = inputBaseballNumberUntilIsValid(user, scanner);
-            computer.printGuessResult(userGuessBaseballNumber);
+            computer.setGuessBaseballNumber(userGuessBaseballNumber);
         } while (computer.isWrongGuess());
     }
 
