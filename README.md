@@ -111,35 +111,85 @@ This project is [MIT](https://github.com/woowacourse/java-baseball-precourse/blo
 
 ---
 
-## 기능 목록
+# Architecture
 
-# UserInputValidator
-
-- 입력받은 야구 게임 숫자가 유효한지 검증
-
-- 입력받은 재시작 여부 값이 유효한지 검증
+<img width="879" alt="스크린샷 2021-06-20 오후 7 33 59" src="https://user-images.githubusercontent.com/82703938/122670783-abd9ad00-d1fe-11eb-9c10-43624a91df82.png">
 
 
-# BaseballNumberListGenerator
+## Application
 
-- 서로 다른 세자릿수 리스트 생성
+- Knowing
 
+  - 모든 객체
+  
+- Doing
 
-# BaseballGameResultMatcher
+  - 협력 객체 공동체 구성
+  
+  - UserInputValidator 객체로 입력값 검증  
 
-- 정답 리스트와 추측 리스트를 숫자 야구 게임 방식으로 매칭
+  - NumberBaseballGameController 객체의 흐름 제어
 
-- 결과 출력
+## UserInputValidator
 
-- 정답 여부 출력
+- Knowing
 
-# Computer
+  - 유효한 야구 게임 숫자 값
+  
+  - 유효한 게임 종료 코드 값
+  
+- Doing
 
-- BaseballNumberListGenerator로 정답 리스트 생성
+  - 야구 게임 숫자 검증
+  
+  - 게임 종료 코드 검증
+  
+## NumberBaseballGameController
 
-- BaseballGameResultMatcher로 결과와 정답 여부 출력
+- Knowing
 
-- 입력받은 재시작 여부 값으로 재시작 여부 상태 업데이트
+  - 야구 게임 정답 숫자
+  
+  - 게임 종료 코드 값
+  
+  - BaseballNumberGenerator 객체
+  
+  - NumberBaseballGameResultMatcher 객체
 
-- 재시작 여부 상태 출력
+- Doing
+
+  - 게임 시작 시, BaseballNumberGenerator 객체로 야구 게임 정답 숫자 생성
+  
+  - NumberBaseballGameResultMatcher 객체로 매칭 결과 출력, 정답 여부 리턴
+  
+  - 게임 종료 여부 코드를 받아, 게임 종료 여부 리턴
+  
+## BaseballNumberGenerator
+
+- Knowing
+
+  - 야구 게임 숫자의 조건  
+
+    - 야구 게임 숫자의 범위
+    
+    - 야구 게임 숫자의 자릿수
+    
+    - 각 자릿수 숫자는 모두 달라야 한다는 것
+
+- Doing
+
+  - 모든 조건을 모두 만족하는 야구 게임 숫자 생성
+  
+## NumberBaseballGameResultMatcher
+
+- Knowing
+
+  - 숫자 야구 게임 매칭 결과
+
+- Doing
+
+  - 매칭 결과 출력
+  
+  - 정답 여부 출력
+
 
