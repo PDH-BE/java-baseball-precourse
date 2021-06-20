@@ -1,10 +1,10 @@
-package baseball;
+package numberbaseballgame;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class UserInputValidator {
     private static final int NUMBER_OF_ANSWER_DIGITS = 3;
+    private static final List<String> ENABLE_CODES_FOR_EXIT_OR_NOT = Arrays.asList("1", "2");
 
     public void validBaseballNumber(String baseballNumberString) throws IllegalArgumentException {
         if (!isNumber(baseballNumberString)) {
@@ -21,8 +21,8 @@ public class UserInputValidator {
         }
     }
 
-    public void validCodeForRestartOrNot(String codeForRestartOrNot) throws IllegalArgumentException {
-        if (!(codeForRestartOrNot.equals("1") || codeForRestartOrNot.equals("2"))) {
+    public void validCodeForExitOrNot(String codeForExitOrNot) throws IllegalArgumentException {
+        if (!ENABLE_CODES_FOR_EXIT_OR_NOT.contains(codeForExitOrNot)) {
             throw new IllegalArgumentException("재시작 여부 입력은 1 또는 2 여야 합니다.");
         }
     }

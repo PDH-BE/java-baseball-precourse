@@ -1,5 +1,6 @@
 package baseball;
 
+import numberbaseballgame.UserInputValidator;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -59,7 +60,7 @@ class UserInputValidatorTest {
     @DisplayName("유저로부터 입력받은 재시작 여부 값이 숫자가 아닐 때")
     void isNotNumberCode() {
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
-            userInputValidator.validCodeForRestartOrNot("abc");
+            userInputValidator.validCodeForExitOrNot("abc");
         });
 
         assertEquals("재시작 여부 입력은 1 또는 2 여야 합니다.", exception.getMessage());
@@ -69,7 +70,7 @@ class UserInputValidatorTest {
     @DisplayName("유저로부터 입력받은 재시작 여부 값이 1 또는 2가 아닌 숫자일 때")
     void isNotValidNumber() {
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
-            userInputValidator.validCodeForRestartOrNot("3");
+            userInputValidator.validCodeForExitOrNot("3");
         });
 
         assertEquals("재시작 여부 입력은 1 또는 2 여야 합니다.", exception.getMessage());
