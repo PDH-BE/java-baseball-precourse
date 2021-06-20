@@ -1,5 +1,6 @@
 package baseball;
 
+import numberbaseballgame.NumberBaseballGameResultMatcher;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -11,14 +12,14 @@ import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class BaseballGameResultMatcherTest {
-    private static BaseballGameResultMatcher baseballGameResultMatcher;
+class NumberBaseballGameResultMatcherTest {
+    private static NumberBaseballGameResultMatcher numberBaseballGameResultMatcher;
     private static ArrayList<Integer> answerNumberList;
     private static ArrayList<Integer> guessNumberList;
 
     @BeforeAll
     static void init(){
-        baseballGameResultMatcher = new BaseballGameResultMatcher();
+        numberBaseballGameResultMatcher = new NumberBaseballGameResultMatcher();
         answerNumberList = new ArrayList<>();
         guessNumberList = new ArrayList<>();
     }
@@ -41,12 +42,8 @@ class BaseballGameResultMatcherTest {
         guessNumberList.add(2);
         guessNumberList.add(3);
 
-        baseballGameResultMatcher.match(answerNumberList,guessNumberList);
-
-        baseballGameResultMatcher.printBaseballGameResult();
+        assertTrue(numberBaseballGameResultMatcher.match(answerNumberList,guessNumberList));
         assertEquals(expectedSystemOut,out.toString());
-
-        assertTrue(baseballGameResultMatcher.isCorrect());
     }
 
     @Test
@@ -67,12 +64,8 @@ class BaseballGameResultMatcherTest {
         guessNumberList.add(5);
         guessNumberList.add(6);
 
-        baseballGameResultMatcher.match(answerNumberList,guessNumberList);
-
-        baseballGameResultMatcher.printBaseballGameResult();
+        assertFalse(numberBaseballGameResultMatcher.match(answerNumberList,guessNumberList));
         assertEquals(expectedSystemOut,out.toString());
-
-        assertFalse(baseballGameResultMatcher.isCorrect());
     }
 
     @Test
@@ -93,12 +86,8 @@ class BaseballGameResultMatcherTest {
         guessNumberList.add(2);
         guessNumberList.add(5);
 
-        baseballGameResultMatcher.match(answerNumberList,guessNumberList);
-
-        baseballGameResultMatcher.printBaseballGameResult();
+        assertFalse(numberBaseballGameResultMatcher.match(answerNumberList,guessNumberList));
         assertEquals(expectedSystemOut,out.toString());
-
-        assertFalse(baseballGameResultMatcher.isCorrect());
     }
 
     @Test
@@ -119,12 +108,8 @@ class BaseballGameResultMatcherTest {
         guessNumberList.add(1);
         guessNumberList.add(2);
 
-        baseballGameResultMatcher.match(answerNumberList,guessNumberList);
-
-        baseballGameResultMatcher.printBaseballGameResult();
+        assertFalse(numberBaseballGameResultMatcher.match(answerNumberList,guessNumberList));
         assertEquals(expectedSystemOut,out.toString());
-
-        assertFalse(baseballGameResultMatcher.isCorrect());
     }
 
     @Test
@@ -145,11 +130,7 @@ class BaseballGameResultMatcherTest {
         guessNumberList.add(3);
         guessNumberList.add(2);
 
-        baseballGameResultMatcher.match(answerNumberList,guessNumberList);
-
-        baseballGameResultMatcher.printBaseballGameResult();
+        assertFalse(numberBaseballGameResultMatcher.match(answerNumberList,guessNumberList));
         assertEquals(expectedSystemOut,out.toString());
-
-        assertFalse(baseballGameResultMatcher.isCorrect());
     }
 }
